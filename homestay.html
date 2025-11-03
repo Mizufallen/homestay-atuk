@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomestayAtuk - Homestay Overview</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .card-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            border-radius: 0.5rem;
+        }
+        .carousel-image {
+            height: 450px;
+            object-fit: cover;
+            width: 100%;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 font-sans">
+
+    <nav class="bg-white shadow-md sticky top-0 z-10">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            
+            <a class="text-2xl font-bold text-blue-600" href="index.html">HomestayAtuk</a>
+
+            <button id="menu-button" class="lg:hidden text-gray-500 hover:text-gray-700 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+            
+            <div id="nav-links" class="hidden lg:flex flex-col lg:flex-row lg:space-x-8 mt-4 lg:mt-0 absolute lg:static top-full left-0 w-full lg:w-auto bg-white lg:bg-transparent p-4 lg:p-0 shadow-lg lg:shadow-none">
+                <a class="nav-link block lg:inline-block py-2 text-gray-600 hover:text-blue-600" href="index.html">Home</a>
+                <a class="nav-link block lg:inline-block py-2 text-blue-600 font-semibold" href="homestay.html">Homestay</a>
+                <a class="nav-link block lg:inline-block py-2 text-gray-600 hover:text-blue-600" href="book.html">Book</a>
+                <a class="nav-link block lg:inline-block py-2 text-gray-600 hover:text-blue-600" href="feedback.html">Feedback</a>
+            </div>
+        </div>
+    </nav>
+    
+    <main class="container mx-auto px-4 mt-10 mb-12">
+        
+        <div id="homestayCarousel" class="relative overflow-hidden card-shadow mb-8 bg-gray-200">
+            <div class="relative w-full overflow-hidden">
+                <div id="slides-container" class="flex transition-transform duration-500 ease-in-out">
+                    
+                    <div class="carousel-item flex-shrink-0 w-full active">
+                        <img class="carousel-image" src="homestay1.jpg" alt="Modern Villa" onerror="this.src='https://placehold.co/1000x450/4F46E5/ffffff?text=MODERN+VILLA';">
+                    </div>
+                    <div class="carousel-item flex-shrink-0 w-full hidden">
+                        <img class="carousel-image" src="homestay2.jpg" alt="Minimalist Semi D" onerror="this.src='https://placehold.co/1000x450/10B981/ffffff?text=MINIMALIST+SEMI+D';">
+                    </div>
+                    <div class="carousel-item flex-shrink-0 w-full hidden">
+                        <img class="carousel-image" src="homestay3.jpg" alt="Classic Homestay View" onerror="this.src='https://placehold.co/1000x450/EF4444/ffffff?text=CLASSIC+HOMESTAY';">
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div id="carousel-indicators" class="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
+                <button data-slide-to="0" class="w-2.5 h-2.5 rounded-full bg-blue-600"></button>
+                <button data-slide-to="1" class="w-2.5 h-2.5 rounded-full bg-gray-400 hover:bg-gray-300"></button>
+                <button data-slide-to="2" class="w-2.5 h-2.5 rounded-full bg-gray-400 hover:bg-gray-300"></button>
+            </div>
+
+            <button id="prev-slide" class="absolute top-1/2 left-4 transform -translate-y-1/2 p-3 bg-black bg-opacity-50 text-white rounded-full hover:bg-opacity-75 transition">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            </button>
+            <button id="next-slide" class="absolute top-1/2 right-4 transform -translate-y-1/2 p-3 bg-black bg-opacity-50 text-white rounded-full hover:bg-opacity-75 transition">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </button>
+        </div>
+
+        <h2 class="text-center mb-6 text-3xl font-extrabold text-gray-800">Homestay Overview</h2>
+
+        <div class="overflow-x-auto card-shadow bg-white p-4">
+            <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">UNIT NAME</th>
+                        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">TYPE/STYLE</th>
+                        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">GUEST</th>
+                        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">FACILITIES</th>
+                        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">AVAILABILITY</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                    <tr>
+                        <td class="px-4 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Villa Jb</td>
+                        <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500">Modern</td>
+                        <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500">6 Pax</td>
+                        <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500">Kitchenette, AC, WiFi, Pool</td>
+                        <td class="px-4 py-4 whitespace-nowrap">
+                            <span class="inline-flex px-3 py-1 text-xs font-semibold leading-5 rounded-full bg-green-100 text-green-800">Available</span>
+                        </td> 
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Semi D</td>
+                        <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500">Minimalist</td>
+                        <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500">4 Pax</td>
+                        <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500">Pool Access, Smart Tv, Wifi</td>
+                        <td class="px-4 py-4 whitespace-nowrap">
+                            <span class="inline-flex px-3 py-1 text-xs font-semibold leading-5 rounded-full bg-yellow-100 text-yellow-800">Limited</span>
+                        </td> 
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Rumah Atuk Homestay</td>
+                        <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500">Classic / Vintage</td>
+                        <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500">8 Pax</td>
+                        <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500">Full Kitchen, Large Yard, BBQ</td>
+                        <td class="px-4 py-4 whitespace-nowrap">
+                            <span class="inline-flex px-3 py-1 text-xs font-semibold leading-5 rounded-full bg-red-100 text-red-800">Booked</span>
+                        </td> 
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="text-center my-10">
+            <a href="book.html" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition duration-150 ease-in-out">
+                Book Now!
+            </a>
+        </div>
+    </main>
+
+    <div class="container mx-auto px-4 text-center py-6 bg-white shadow-inner rounded-t-lg">
+        <p class="mb-3 text-lg text-gray-700">Have suggestions or feedback for HomestayAtuk?</p>
+        <a href="feedback.html" class="inline-block bg-transparent border border-gray-400 text-gray-700 hover:bg-gray-100 font-semibold py-2 px-6 rounded-full transition duration-150 ease-in-out">
+            Send Feedback
+        </a>
+    </div>
+
+    <footer class="bg-gray-800 text-white p-4 text-center">
+        <p class="text-sm opacity-80">&copy; 2025 HomestayAtuk. All rights reserved. | DFK20013 Project Based Assignment</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuButton = document.getElementById('menu-button');
+            const navLinks = document.getElementById('nav-links');
+
+            menuButton.addEventListener('click', function() {
+                navLinks.classList.toggle('hidden');
+            });
+
+            const carousel = document.getElementById('homestayCarousel');
+            if (carousel) {
+                const slidesContainer = document.getElementById('slides-container');
+                const slides = carousel.querySelectorAll('.carousel-item');
+                const indicatorsContainer = document.getElementById('carousel-indicators');
+                const indicators = indicatorsContainer.querySelectorAll('button');
+                const prevButton = document.getElementById('prev-slide');
+                const nextButton = document.getElementById('next-slide');
+                
+                let slideWidth = 0;
+                
+                function initializeCarousel() {
+                    slideWidth = slides[0].offsetWidth; 
+                    
+                    slidesContainer.style.width = `${slides.length * 100}%`;
+                    slides.forEach(slide => {
+                        slide.style.width = `${100 / slides.length}%`;
+                    });
+                    updateCarousel();
+                }
+
+                let currentIndex = 0;
+
+                function updateCarousel() {
+                    if (slideWidth === 0) return;
+
+                    const offset = -currentIndex * slideWidth;
+                    slidesContainer.style.transform = `translateX(${offset}px)`;
+
+                    indicators.forEach((indicator, index) => {
+                        if (index === currentIndex) {
+                            indicator.classList.add('bg-blue-600');
+                            indicator.classList.remove('bg-gray-400');
+                        } else {
+                            indicator.classList.remove('bg-blue-600');
+                            indicator.classList.add('bg-gray-400');
+                        }
+                    });
+                }
+
+                function goToSlide(index) {
+                    currentIndex = (index + slides.length) % slides.length;
+                    updateCarousel();
+                }
+                
+                window.addEventListener('load', initializeCarousel);
+                window.addEventListener('resize', initializeCarousel);
+
+                setInterval(() => goToSlide(currentIndex + 1), 3000);
+
+                prevButton.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    goToSlide(currentIndex - 1);
+                });
+                nextButton.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    goToSlide(currentIndex + 1);
+                });
+
+                indicators.forEach((indicator, index) => {
+                    indicator.addEventListener('click', () => goToSlide(index));
+                });
+            }
+        });
+    </script>
+</body>
+</html>

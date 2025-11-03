@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomestayAtuk - Home</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styling for card shadows, mimicking Bootstrap's shadow */
+        .card-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            border-radius: 0.5rem; /* Equivalent to rounded-lg */
+        }
+        /* Style for required input fields */
+        .is-invalid {
+            border-color: #dc3545;
+            padding-right: 2.25rem;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5l-.2-.1h.4L6 3.6z'/%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 0.8em;
+        }
+        .invalid-feedback {
+            color: #dc3545;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 font-sans">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md sticky top-0 z-10">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            
+            <a class="text-2xl font-bold text-blue-600" href="index.html">HomestayAtuk</a>
+
+            <!-- Mobile Menu Button (Hamburger) -->
+            <button id="menu-button" class="lg:hidden text-gray-500 hover:text-gray-700 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+            
+            <!-- Navigation Links -->
+            <div id="nav-links" class="hidden lg:flex flex-col lg:flex-row lg:space-x-8 mt-4 lg:mt-0 absolute lg:static top-full left-0 w-full lg:w-auto bg-white lg:bg-transparent p-4 lg:p-0 shadow-lg lg:shadow-none">
+                <a class="nav-link block lg:inline-block py-2 text-blue-600 font-semibold" href="index.html">Home</a>
+                <a class="nav-link block lg:inline-block py-2 text-gray-600 hover:text-blue-600" href="homestay.html">Homestay</a>
+                <a class="nav-link block lg:inline-block py-2 text-gray-600 hover:text-blue-600" href="book.html">Book</a>
+                <a class="nav-link block lg:inline-block py-2 text-gray-600 hover:text-blue-600" href="feedback.html">Feedback</a>
+            </div>
+        </div>
+    </nav>
+    
+    <main class="container mx-auto px-4 mt-10 mb-12">
+        <div class="flex flex-col lg:flex-row gap-8">
+            
+            <!-- Left Content Column -->
+            <div class="w-full lg:w-7/12">
+                <div class="p-6 bg-white card-shadow">
+                    <h2 class="text-3xl font-extrabold text-gray-800 mb-2">Welcome to HomestayAtuk!</h2>
+                    <p class="text-lg text-gray-600 mb-4 border-b pb-4">Experience the comfort and charm of our curated homestays, your perfect getaway is just a click away.</p>
+                    
+                    <!-- Translated Text -->
+                    <p class="text-gray-700">We offer a unique stay experience with complete facilities in a strategic location. Explore our choices on the **Homestay** page!</p>
+                </div>
+
+                <div class="mt-6 p-4 bg-yellow-50 card-shadow border border-yellow-200">
+                    <h5 class="text-xl font-semibold text-yellow-800">Latest Promotion</h5>
+                    <!-- Translated Text -->
+                    <p class="text-yellow-700">Get 15% discount for bookings of **3 nights or more** this month. Book now!</p>
+                </div>
+            </div>
+
+            <!-- Right Login Column -->
+            <div class="w-full lg:w-5/12">
+                <div class="bg-white p-6 card-shadow">
+                    <h4 class="text-xl font-bold text-center mb-6 text-gray-800">Login to Your Account</h4>
+                    
+                    <div id="message-box" class="hidden mb-4 p-3 rounded-lg text-sm font-medium" role="alert"></div>
+
+                    <form id="loginForm" novalidate>
+                        <div class="mb-4">
+                            <label for="username" class="block text-sm font-medium text-gray-700 mb-1">Username</label>
+                            <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" id="username" required>
+                            <div class="invalid-feedback hidden mt-1" id="username-feedback">
+                                Username is required.
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                            <input type="password" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" id="password" required>
+                            <div class="invalid-feedback hidden mt-1" id="password-feedback">
+                                Password is required.
+                            </div>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-lg transition duration-150 ease-in-out" id="loginButton">Login</button>
+                    </form>
+                    <p class="mt-4 text-center text-xs text-gray-400">Hint: Use **user/pass** for demo login.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Feedback CTA Section -->
+    <div class="container mx-auto px-4 text-center py-6 bg-white shadow-inner rounded-t-lg">
+        <!-- Translated Text -->
+        <p class="mb-3 text-lg text-gray-700">Have suggestions or feedback for HomestayAtuk?</p>
+        <a href="feedback.html" class="inline-block bg-transparent border border-gray-400 text-gray-700 hover:bg-gray-100 font-semibold py-2 px-6 rounded-full transition duration-150 ease-in-out">
+            Send Feedback
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white p-4 text-center">
+        <p class="text-sm opacity-80">&copy; 2025 HomestayAtuk. All rights reserved. | DFK20013 Project Based Assignment</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginForm = document.getElementById('loginForm');
+            const menuButton = document.getElementById('menu-button');
+            const navLinks = document.getElementById('nav-links');
+            const messageBox = document.getElementById('message-box');
+
+
+            function showMessage(type, message) {
+                // type can be 'success' or 'error'
+                messageBox.textContent = message;
+                messageBox.className = 'mb-4 p-3 rounded-lg text-sm font-medium';
+                if (type === 'success') {
+                    messageBox.classList.add('bg-green-100', 'text-green-800');
+                } else if (type === 'error') {
+                    messageBox.classList.add('bg-red-100', 'text-red-800');
+                }
+                messageBox.classList.remove('hidden');
+            }
+            
+            function validateAndDisplayFeedback(inputElement, feedbackElement, isValid) {
+                if (isValid) {
+                    inputElement.classList.remove('is-invalid');
+                    feedbackElement.classList.add('hidden');
+                } else {
+                    inputElement.classList.add('is-invalid');
+                    feedbackElement.classList.remove('hidden');
+                }
+            }
+
+            // Toggle mobile menu
+            menuButton.addEventListener('click', function() {
+                navLinks.classList.toggle('hidden');
+            });
+            
+            // Handle form submission
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                messageBox.classList.add('hidden'); // Clear previous messages
+
+                const usernameInput = document.getElementById('username');
+                const passwordInput = document.getElementById('password');
+                const usernameFeedback = document.getElementById('username-feedback');
+                const passwordFeedback = document.getElementById('password-feedback');
+
+                const username = usernameInput.value.trim();
+                const password = passwordInput.value.trim();
+
+                const isUsernameValid = username !== '';
+                const isPasswordValid = password !== '';
+                
+                // Perform client-side validation display
+                validateAndDisplayFeedback(usernameInput, usernameFeedback, isUsernameValid);
+                validateAndDisplayFeedback(passwordInput, passwordFeedback, isPasswordValid);
+
+                if (isUsernameValid && isPasswordValid) {
+                    // Simple login validation logic
+                    if (username === 'user' && password === 'pass') { 
+                        showMessage('success', 'Login successful! Welcome.');
+                        // Use a short delay before redirecting to allow the message to show
+                        setTimeout(() => {
+                            window.location.href = 'homestay.html';
+                        }, 1000);
+                    } else {
+                        showMessage('error', 'Invalid username or password. Please use user/pass.');
+                        // Manually add invalid state for failed credentials
+                        usernameInput.classList.add('is-invalid');
+                        passwordInput.classList.add('is-invalid');
+                    }
+                }
+            });
+
+            // Re-validate fields on input change to clear error states
+            document.getElementById('username').addEventListener('input', function() {
+                validateAndDisplayFeedback(this, document.getElementById('username-feedback'), this.value.trim() !== '');
+            });
+
+            document.getElementById('password').addEventListener('input', function() {
+                validateAndDisplayFeedback(this, document.getElementById('password-feedback'), this.value.trim() !== '');
+            });
+        });
+    </script>
+</body>
+</html>

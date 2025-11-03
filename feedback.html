@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HomestayAtuk - Feedback</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+</head>
+<body>
+    <div data-role="page" id="feedback-page">
+        <div data-role="header" data-position="fixed" class="bg-light border-bottom">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid">
+                    <ul class="nav nav-pills mx-auto feedback-nav" role="tablist">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="homestay.html">Homestay</a></li>
+                        <li class="nav-item"><a class="nav-link" href="book.html">Book</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="feedback.html">Feedback</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <h1 class="ui-title" style="position: absolute; right: 15px; top: 12px; font-size: 1.5rem;">HomestayAtuk</h1>
+        </div>
+
+        <div role="main" class="ui-content container mt-4">
+            <div class="jumbotron text-center bg-white card-shadow">
+                <h3 class="display-6">Thank You for Your Stay!</h3>
+                <p class="lead">We appreciate your time to provide feedback. Your input is vital in maintaining our quality service.</p>
+            </div>
+            
+            <div class="card p-4 card-shadow my-4">
+                <h4 class="card-title text-center mb-4">Feedback Form</h4>
+                <form id="feedbackForm">
+                    <div class="form-group row">
+                        <label for="name" class="col-sm-3 col-form-label">Name</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="name" placeholder="Your name (Input Placeholder)" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label for="email" class="col-sm-3 col-form-label">Email</label>
+                        <div class="col-sm-9">
+                            <input type="email" class="form-control" id="email" placeholder="you@example.com (Input Placeholder)" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label for="message" class="col-sm-3 col-form-label">Message</label>
+                        <div class="col-sm-9">
+                            <textarea class="form-control" id="message" rows="4" placeholder="Your message (Textarea Placeholder)" required></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-dark mt-3 shadow" id="sendFeedback">Send Feedback</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <footer class="bg-dark text-white p-3 text-center">
+            <p>&copy; 2025 HomestayAtuk. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            $('#feedbackForm').on('submit', function(e) {
+                e.preventDefault(); // Prevent default submission
+                
+                // Simple validation check before clearing
+                if ($('#name').val() && $('#email').val() && $('#message').val()) {
+                    alert('Feedback Sent! Thank you for your time. The form will now be cleared.');
+                    
+                    // Emptying all input text areas (Figure 5, 99)
+                    $('#name').val('');
+                    $('#email').val('');
+                    $('#message').val('');
+                } else {
+                    alert('Please fill in all the required fields.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
